@@ -1,0 +1,39 @@
+# SetTempFlowchart
+## 描述:
+保存当前的Flowchart状态指令,如果需要运行用[RunTempFlowchart](Command/RunTempFlowchart)指令
+## 实例:
+<!-- tabs:start -->
+<!-- #### **Lua** -->
+<!-- tab:Lua -->
+
+```lua
+function (runner,env)
+  runner.SetTempFlowchart("Talk500")
+end
+```
+<!-- #### **Json** -->
+<!-- tab:Json -->
+
+```json
+[
+  {
+    "id": "测试1",
+    "character": {
+      "旁白": 0,
+      "主角": 1,
+      "倪旭欣": 609
+    },
+    "dialog": [
+      "SetTempFlowchart*Talk500",
+    ],
+    "option": []
+  }
+]
+
+```
+<!-- tabs:end -->
+
+## 参数
+| 参数      | 类型    | 描述                       | 选项 |
+| --------- | ------- | -------------------------- | ---- |
+| Key       | String  | 键值                       | 必填 |

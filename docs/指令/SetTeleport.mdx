@@ -1,0 +1,50 @@
+# SetTeleport
+## 描述:
+主要传送玩家指定地图的场景,如果填多位或者单位NpcId也一起被传送
+## 实例:
+<!-- tabs:start -->
+<!-- tab:Lua -->
+
+```lua
+function (runner,env)
+  --只传送玩家指定地图场景
+  runner.SetTeleport(10,"S2")
+  --传送玩家以及单位npc指定地图场景
+  runner.SetTeleport(10,"S2","112")
+  --传送玩家以及多位npc指定地图场景
+  runner.SetTeleport(10,"S2","112,113,114")
+end
+```
+
+<!-- tab:Json -->
+
+```json
+[
+  {
+    "id": "测试1",
+    "character": {
+      "旁白": 0,
+      "主角": 1,
+      "倪旭欣": 609
+    },
+    "dialog": [
+      //只传送玩家指定地图场景
+      "SetTeleport*10#S2",
+      //传送玩家以及单位npc指定地图场景
+      "SetTeleport*10#S2#112",
+	  //传送玩家以及多位npc指定地图场景
+      "SetTeleport*10#S2#112,113,114",
+    ],
+    "option": []
+  }
+]
+
+```
+<!-- tabs:end -->
+
+## 参数
+| 参数      | 类型    | 描述                                        | 选项 |
+| --------- | ------- | ------------------------------------------- | ---- |
+| mapId     | Integer | 地图ID                                      | 必填 |
+| sceneName | String  | 场景名字                                    | 必填 |
+| npcId     | String  | 填npcId数字,用","分隔符来区分 "112,113,114" | 可选 |     
