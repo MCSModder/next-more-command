@@ -9,7 +9,7 @@ const config = {
   title: 'Next更多指令扩展',
   tagline: 'Dinosaurs are cool',
   url: 'https://zerxz.github.io/',
-  baseUrl: '/next-more-command/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
