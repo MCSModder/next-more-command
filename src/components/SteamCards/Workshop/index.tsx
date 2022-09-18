@@ -1,25 +1,41 @@
-import React from "react";
-import axios from "axios";
-function getPublishedFileDetails(items:number[]) {
-  let publishedFileIds = "";
-   for (let i = 0; i < items.length; i++) {
-            publishedFileIds += `&publishedfileids[${i}]=${items[i]}`;
-        }
-
-  const itemcount = items.length;
-axios.post("https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/v1/?format=json",{itemcount,publishedfileids:items}).then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-
+import React, { Component } from "react";
+import ReactDom from "react-dom";
+import axios,{AxiosRequestConfig} from "axios";
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
+interface ISteamCardsWorkshopProps{
+  publishedfileids:number|number[]
 }
-export default function SteamCardsWorkshop({publishedfileids}) {
-  console.log(publishedfileids);
+
+export default class SteamCardsWorkshop extends React.Component<ISteamCardsWorkshopProps> {
+  publishedfileids: number | number[];
+  constructor(props:ISteamCardsWorkshopProps) {
+    super(props)
+    this.publishedfileids = props.publishedfileids;
+  }
+ async componentDidMount(){
+  const {publishedfileids} = this.props
+   let items = Array.isArray(publishedfileids) ? publishedfileids: [publishedfileids]
+  const itemcount = items.length.toString();
+  const form = new FormData() 
+  form.append("itemcount",itemcount)
+items.forEach((el,i) => {
+  form.append(`publishedfileids[${i}]`,`${el}`)
+})
+
   
-  getPublishedFileDetails(publishedfileids)
-  return (
-    <div>测试</div>
-  )
+console.log(FormData);
+
+  const config:AxiosRequestConfig= {
+method:'post',
+data:form,
+url:'https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/v1/',
+  }
+   await axios(config)
+  }
+  render(): React.ReactNode {
+    return(<div>
+      测试
+    </div>)
+  }
 }

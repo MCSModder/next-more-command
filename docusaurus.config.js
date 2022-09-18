@@ -128,6 +128,7 @@ const config = {
         additionalLanguages: ['lua', 'json'],
       },
     }),
+
 };
 
 module.exports = config;
