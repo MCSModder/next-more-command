@@ -1,0 +1,4 @@
+name = "steam-api"
+main = "src/index.ts"
+compatibility_date = "2022-09-19"
+node_compat = true

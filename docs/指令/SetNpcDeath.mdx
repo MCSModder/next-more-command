@@ -2,9 +2,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-# SetTempFlowchart
+# SetNpcDeath
 ## 描述:
-保存当前的Flowchart状态指令,如果需要运行用[RunTempFlowchart](./RunTempFlowchart)指令
+设置Npc死亡
 ## 实例:
 
 <Tabs>
@@ -13,7 +13,9 @@ import TabItem from '@theme/TabItem';
 
 ```lua
 function (runner,env)
-  runner.SetTempFlowchart("Talk500")
+  -- runner.SetNpcDeath(死亡类型,死亡NPCID,凶手NPCID(可选),延迟死亡(可选))
+  runner.SetNpcDeath(0,100)
+  runner.SetNpcDeath(0,100,0,true)
 end
 ```
   </TabItem>
@@ -30,7 +32,8 @@ end
       "倪旭欣": 609
     },
     "dialog": [
-      "SetTempFlowchart*Talk500",
+      "SetNpcDeath*0#100",
+      "SetNpcDeath*0#100#0#1",
     ],
     "option": []
   }
@@ -44,4 +47,7 @@ end
 ## 参数
 | 参数      | 类型    | 描述                       | 选项 |
 | --------- | ------- | -------------------------- | ---- |
-| Key       | String  | 键值                       | 必填 |
+| deathType       | Integer  | 死亡类型                       | 必填 |
+| npcId       | Integer  | 死亡NPCID                       | 必填 |
+| killNpcId       | Integer  | 凶手NPCID                       | 可选 |
+| after       | Boolean  | 延迟死亡                       | 可选 |

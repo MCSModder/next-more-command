@@ -1,0 +1,55 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# SetShengWang
+## 描述:
+设置玩家的声望增加或减少
+## 实例:
+
+<Tabs>
+
+  <TabItem value="lua" label="Lua" default>
+
+```lua
+function (runner,env)
+  -- runner.SetShengWang(数量,设置类型(0 增加 1 减少),提示(默认不提示))
+  -- 增加1000声望
+  runner.SetShengWang(1000,0)
+  -- 减少1000声望
+  runner.SetShengWang(1000,1)
+end
+```
+  </TabItem>
+
+  <TabItem value="json" label="Json">
+
+```json
+[
+  {
+    "id": "测试1",
+    "character": {
+      "旁白": 0,
+      "主角": 1,
+      "倪旭欣": 609
+    },
+    "dialog": [
+      // 增加1000声望
+      "SetShengWang*1000#0",
+      // 减少1000声望
+      "SetShengWang*1000#1",
+    ],
+    "option": []
+  }
+]
+
+```
+
+  </TabItem>
+</Tabs>
+
+## 参数
+| 参数      | 类型    | 描述                       | 选项 |
+| --------- | ------- | -------------------------- | ---- |
+| 数量       | Integer  | 声望数量                       | 必填 |
+| 增加或者减少       | Integer  | 0 增加 1 减少                       | 必填 |
+| 提示       | Integer  | 0 不提示 1 提示                       | 可选 |

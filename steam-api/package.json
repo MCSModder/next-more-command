@@ -1,0 +1,18 @@
+{
+  "name": "steam-api",
+  "version": "0.0.0",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^3.16.0",
+    "@types/steam-user": "^4.23.2",
+    "typescript": "^4.8.3",
+    "wrangler": "2.1.4"
+  },
+  "private": true,
+  "scripts": {
+    "start": "wrangler dev",
+    "deploy": "wrangler publish"
+  },
+  "dependencies": {
+    "steam-user": "^4.25.0"
+  }
+}

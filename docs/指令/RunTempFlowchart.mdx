@@ -1,21 +1,28 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # RunTempFlowchart
-## 描述:
+## 描述
 读取保存的[SetTempFlowchart](./SetTempFlowchart)指令,运行完就会自动销毁,只能一次性.
-## 实例:
-<!-- tabs:start -->
-<!-- tab:Lua -->
+## 实例
+
+<Tabs>
+
+  <TabItem value="lua" label="Lua" default>
 
 ```lua
-function (runner,env)
+function (runner,env) 
   -- runner.RunTempFlowchart(key,tagBlock,Itemid(可选))
   -- runner.RunTempFlowchart(键值,Block名称,Itemid(可选))
-  --默认从第一个Command数组开始
+  -- 默认从第一个Command数组开始
   runner.RunTempFlowchart("Talk500","出手相助")
-  --指定Itemid开始
+  -- 指定Itemid开始
   runner.RunTempFlowchart("Talk500","出手相助",322)
 end
 ```
-<!-- tab:Json -->
+
+  </TabItem>
+  <TabItem value="json1" label="Json">
 
 ```json
 [
@@ -34,9 +41,10 @@ end
     "option": []
   }
 ]
-
 ```
-<!-- tabs:end -->
+
+  </TabItem>
+</Tabs>
 
 ## 参数
 | 参数      | 类型    | 描述                       | 选项 |

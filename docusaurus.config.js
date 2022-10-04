@@ -39,13 +39,6 @@ const config = {
           editUrl:
             'https://github.com/ZerxZ/next-more-command',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/ZerxZ/next-more-command',
-        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -69,7 +62,6 @@ const config = {
             position: 'left',
             label: '文档',
           },
-          { to: '/blog', label: '博客', position: 'left' },
           {
             href: 'https://github.com/ZerxZ/next-more-command',
             label: 'GitHub',
@@ -110,10 +102,6 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
                 label: 'GitHub',
                 href: 'https://github.com/ZerxZ/next-more-command',
               },
@@ -128,7 +116,21 @@ const config = {
         additionalLanguages: ['lua', 'json'],
       },
     }),
+  plugins: [[
+    "docusaurus-plugin-devserver",
+    {
+      devServer: {
+        proxy: {
+          "/steam-api": {
+            target: "https://api.steampowered.com",
+            pathRewrite: { "^/steam-api": "" },
+            changeOrigin: true,
+          },
+        },
 
+      },
+    },
+  ],]
 };
 
 module.exports = config;
