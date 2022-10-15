@@ -127,7 +127,6 @@ const config = {
             changeOrigin: true,
           },
         },
-
       },
     },
   ],]
