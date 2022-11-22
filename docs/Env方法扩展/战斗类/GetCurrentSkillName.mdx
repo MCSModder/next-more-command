@@ -1,0 +1,40 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# GetCurrentSkillName
+获取当前神通名字,这个只能配合技能触发器类型才能用.如果不是会返回空字符串;
+## 实例:
+<Tabs>
+  <TabItem value="lua" label="Lua" default>
+
+```lua
+function (runner,env)
+  -- env:GetCurrentSkill()
+   env:GetCurrentSkillName()
+end
+```
+
+  </TabItem>
+  <TabItem value="json" label="Json触发器">
+
+```json
+[
+{
+    "id":"测试触发器",
+    "type":"玩家技能使用前",
+    "condition":" GetCurrentSkillName() == '落石1' ",
+    "triggerEvent":"测试1"
+}
+]
+```
+
+  </TabItem>
+</Tabs>
+
+
+
+
+## 参数
+| 参数  | 类型      | 描述                 | 选项  |
+|-----|---------|--------------------|-----|
+| 返回值 | String | 返回当前神通名字,如果找不到默认空字符串 |     |

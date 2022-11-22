@@ -1,0 +1,54 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# RunFungusTalk
+
+用来跳转原版剧情指定位置用.详细使用建议看看next导出文件`Fungus`文件夹.
+
+## 实例:
+
+<Tabs>
+<TabItem value="lua" label="Lua" default>
+
+```lua
+function (runner,env)
+-- runner.RunFungusTalk(talkID,tagBlock)
+-- runner.RunFungusTalk(talkID,Block名称)
+runner.RunFungusTalkItemId(501,"出手相助")
+end
+```
+
+</TabItem>
+
+<TabItem value="json" label="Json">
+
+```json
+[
+{
+    "id": "测试1",
+    "character": {
+    "旁白": 0,
+    "主角": 1,
+    "倪旭欣": 609
+},
+    "dialog": [
+    //RunFungusTalkItemId*talkID#tagBlock
+    "RunFungusTalkItemId*501#出手相助",
+    ],
+    "option": []
+}
+]
+```
+
+</TabItem>
+
+</Tabs>
+
+
+
+
+## 参数
+| 参数        | 类型      | 描述                     | 选项  |
+|-----------|---------|------------------------|-----|
+| talkID    | Integer | TalkID                 | 必填  |
+| BlockName | String  | Block名称                | 必填  |

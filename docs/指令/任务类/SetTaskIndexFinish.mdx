@@ -1,0 +1,49 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# SetTaskIndexFinish
+设置任务第几步骤,如果只是设置下一步骤推荐用[SetTaskNext](./SetTaskNext)指令
+## 实例:
+<Tabs>
+  <TabItem value="lua" label="Lua" default>
+
+```lua
+function (runner,env)
+  -- runner.SetTaskIndexFinish(taskID,taskIndex)
+  runner.SetTaskIndexFinish(140,2)
+end
+```
+
+  </TabItem>
+
+  <TabItem value="json" label="Json">
+
+```json
+[
+  {
+    "id": "测试1",
+    "character": {
+      "旁白": 0,
+      "主角": 1,
+      "倪旭欣": 609
+    },
+    "dialog": [
+	  //SetTaskIndexFinish*taskID#taskIndex
+      "SetTaskIndexFinish*140#2",
+    ],
+    "option": []
+  }
+]
+```
+
+  </TabItem>
+</Tabs>
+
+
+
+
+## 参数
+| 参数        | 类型      | 描述   | 选项  |
+|-----------|---------|------|-----|
+| taskID    | Integer | 任务id | 必填  |
+| taskIndex | Integer | 任务步骤 | 必填  |

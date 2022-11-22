@@ -1,0 +1,29 @@
+# 战斗触发器类型
+
+## 简介
+触发器类型是指游戏里什么样的操作可以触发事件。
+
+如 `回合开始前` 类型是指在战斗界面回合开始前触发。
+
+使用 `回合开始前` 与 使用 `StartRoundBefore` 效果是一样的
+
+英文类型区分大小写
+
+触发器会给环境传入一些环境变量，变量的具体说明请参考 [运行时脚本-脚本环境](https://wiki.biligame.com/mcs/%E8%BF%90%E8%A1%8C%E6%97%B6%E8%84%9A%E6%9C%AC)
+
+## 触发器查询
+
+### 单项触发器
+该类触发器仅触发优先级最高且满足条件的事件
+
+|触发器类型|介绍|环境变量|
+| - | - | - |
+|回合开始前 / StartRoundBefore|战斗回合前触发|roleID 敌人ID|
+|回合开始后 / StartRoundAfter|开启地图奇遇时触发，触发成功会打断奇遇面板|roleID 敌人ID|
+|回合结束前 / EndRoundBefore|点击奇遇按钮时触发，会关闭奇遇面板|roleID 敌人ID
+|回合结束后 / EndtRoundAfter|点击奇遇选项后，点击关闭按钮时触发|roleID 敌人ID
+|玩家技能使用前 / PlayerUseSkillBefore|玩家使用技能触发（不会与 打断玩家技能使用 同时触发）|roleID 敌人ID
+|玩家技能使用后 / PlayerUseSkillAfter|玩家使用技能触发（会在技能使用完后触发）|roleID 敌人ID
+|打断玩家技能使用 / BreakPlayerUseSkillBefore|玩家使用技能（会打断技能使用，不会消耗灵气）|roleID 敌人ID|
+|战斗开始 / FightStart|战斗开始时触发|roleID 敌人ID|
+|结束战斗 / FightFinish|战斗结束时触发|roleID 敌人ID|

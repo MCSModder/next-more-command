@@ -2,8 +2,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-# SetTempFlowchart
-保存当前的Flowchart状态指令,如果需要运行用[RunTempFlowchart](./RunTempFlowchart)指令
+# NpcForceJiaoYi
+强制指定npc交易
 ## 实例:
 
 <Tabs>
@@ -12,7 +12,8 @@ import TabItem from '@theme/TabItem';
 
 ```lua
 function (runner,env)
-  runner.SetTempFlowchart("Talk500")
+  -- runner.NpcForceJiaoYi(NPCID)
+  runner.NpcForceJiaoYi(609)
 end
 ```
   </TabItem>
@@ -29,7 +30,7 @@ end
       "倪旭欣": 609
     },
     "dialog": [
-      "SetTempFlowchart*Talk500",
+      "NpcForceJiaoYi*609",
     ],
     "option": []
   }
@@ -41,6 +42,6 @@ end
 </Tabs>
 
 ## 参数
-| 参数      | 类型    | 描述                       | 选项 |
-| --------- | ------- | -------------------------- | ---- |
-| Key       | String  | 键值                       | 必填 |
+| 参数    | 类型      | 描述    | 选项  |
+|-------|---------|-------|-----|
+| npcId | Integer | NPCID | 必填  |

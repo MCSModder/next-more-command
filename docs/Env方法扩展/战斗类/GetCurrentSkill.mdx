@@ -1,0 +1,27 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# GetCurrentSkill
+获取当前神通,这个只能配合技能触发器类型才能用.如果不是会返回null值;
+## 实例:
+<Tabs>
+  <TabItem value="lua" label="Lua" default>
+
+```lua
+function (runner,env)
+  -- env:GetCurrentSkill()
+   env:GetCurrentSkill()
+end
+```
+
+  </TabItem>
+
+</Tabs>
+
+
+
+
+## 参数
+| 参数       | 类型      | 描述       | 选项  |
+|----------|---------|----------|-----|
+| 返回值      | GUIPackage.Skill | 返回当前神通,想知道更多反编译找`GUIPackage.Skill` |     |

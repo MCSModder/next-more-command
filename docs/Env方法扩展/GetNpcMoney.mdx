@@ -1,0 +1,42 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# GetNpcMoney
+获取NPC的灵石数量
+## 实例:
+<Tabs>
+  <TabItem value="lua" label="Lua" default>
+
+```lua
+function (runner,env)
+  -- env:GetNpcMoney(NpcID)
+  return env:GetNpcMoney(1000)
+end
+```
+
+  </TabItem>
+
+  <TabItem value="json" label="Json触发器">
+
+```json
+[
+    {
+        "id":"测试触发器",
+        "type":"交谈",
+        "condition":"roleBindID==609 && GetNpcMoney(roleBindID) == \"主角\"",
+        "triggerEvent":"测试1"
+    }
+]
+```
+
+  </TabItem>
+</Tabs>
+
+
+
+
+## 参数
+| 参数    | 类型      | 描述                          | 选项  |
+|-------|---------|-----------------------------|-----|
+| NpcID | Integer | NPCID                       | 必填  |
+| 返回值   | Integer | 返回NPC的灵石数量,如果找不到或者输入错都返回0灵石 |     |

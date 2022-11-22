@@ -1,0 +1,40 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# GetCurrentSkillID
+获取当前神通ID,这个只能配合技能触发器类型才能用.如果不是会返回-1值;
+## 实例:
+<Tabs>
+  <TabItem value="lua" label="Lua" default>
+
+```lua
+function (runner,env)
+  -- env:GetCurrentSkill()
+   env:GetCurrentSkill()
+end
+```
+
+  </TabItem>
+  <TabItem value="json" label="Json触发器">
+
+```json
+[
+{
+    "id":"测试触发器",
+    "type":"玩家技能使用前",
+    "condition":" GetCurrentSkillID() == 100 ",
+    "triggerEvent":"测试1"
+}
+]
+```
+
+  </TabItem>
+</Tabs>
+
+
+
+
+## 参数
+| 参数  | 类型      | 描述                 | 选项  |
+|-----|---------|--------------------|-----|
+| 返回值 | Integer | 返回当前神通ID,如果找不到默认-1 |     |

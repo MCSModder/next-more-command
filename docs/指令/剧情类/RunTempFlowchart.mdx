@@ -1,0 +1,55 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# RunTempFlowchart
+读取保存的[SetTempFlowchart](./SetTempFlowchart)指令,运行完就会自动销毁,只能一次性.
+## 实例
+
+<Tabs>
+
+<TabItem value="lua" label="Lua" default>
+
+```lua
+function (runner,env)
+-- runner.RunTempFlowchart(key,tagBlock,Itemid(可选))
+-- runner.RunTempFlowchart(键值,Block名称,Itemid(可选))
+-- 默认从第一个Command数组开始
+runner.RunTempFlowchart("Talk500","出手相助")
+-- 指定Itemid开始
+runner.RunTempFlowchart("Talk500","出手相助",322)
+end
+```
+
+</TabItem>
+
+<TabItem value="json" label="Json">
+
+```json
+[
+{
+    "id": "测试1",
+    "character": {
+    "旁白": 0,
+    "主角": 1,
+    "倪旭欣": 609
+},
+    "dialog": [
+    //RunTempFlowchart*key#tagBlock#Itemid(可选))
+    "RunTempFlowchart*Talk500#出手相助",
+    "RunTempFlowchart*Talk500#出手相助#322",
+    ],
+    "option": []
+}
+]
+```
+
+</TabItem>
+
+</Tabs>
+
+## 参数
+| 参数        | 类型      | 描述                     | 选项  |
+|-----------|---------|------------------------|-----|
+| Key       | String  | 键值                     | 必填  |
+| BlockName | String  | Block名称                | 必填  |
+| ItemID    | Integer | Block里面Command数组ItemId | 可选  |
